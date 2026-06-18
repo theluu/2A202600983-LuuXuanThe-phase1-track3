@@ -29,6 +29,48 @@ python run_benchmark.py --dataset data/hotpot_mini.json --out-dir outputs/sample
 python autograde.py --report-path outputs/sample_run/report.json
 ```
 
+## Cách chạy & File Output
+
+### Lệnh chạy benchmark
+
+```bash
+# Mock runtime (deterministic, không cần API key)
+python run_benchmark.py --dataset data/hotpot_mini.json --out-dir outputs/sample_run
+
+# LLM thật (ví dụ OpenAI) — đặt thư mục output riêng cho mỗi lần chạy
+python run_benchmark.py --dataset data/golden.json --runtime openai --out-dir outputs/golden_run
+
+# Chấm điểm tự động từ report.json
+python autograde.py --report-path outputs/sample_run/report.json
+```
+
+**Các tham số chính của `run_benchmark.py`:**
+
+| Flag | Mặc định | Mô tả |
+|---|---|---|
+| `--dataset` | `data/hotpot_mini.json` | File dữ liệu test (format `QAExample`) |
+| `--out-dir` | `outputs/sample_run` | Thư mục chứa kết quả render ra |
+| `--runtime` | `mock` | `mock` (giả lập) hoặc `openai` (LLM thật) |
+| `--reflexion-attempts` | `4` | Số lần thử tối đa của Reflexion loop |
+| `--adaptive` | `True` | Bật/tắt adaptive max attempts |
+
+### File output render ra ở đâu
+
+Mỗi lần chạy, kết quả được ghi vào thư mục `--out-dir` (mặc định `outputs/sample_run/`). Trong thư mục đó có 5 file:
+
+| File | Nội dung |
+|---|---|
+| `react_runs.jsonl` | Bản ghi chi tiết từng lần chạy của **ReAct Agent** (1 record / dòng) |
+| `reflexion_runs.jsonl` | Bản ghi chi tiết từng lần chạy của **Reflexion Agent** (1 record / dòng) |
+| `report.json` | Báo cáo tổng hợp (dùng cho `autograde.py`) — gồm `meta`, `summary`, `failure_modes`, `examples`, `extensions`, `discussion` |
+| `report.md` | Báo cáo dạng Markdown để đọc nhanh |
+| `report.html` | Báo cáo trực quan — **mở bằng trình duyệt** để xem dạng bảng/biểu đồ |
+
+Các thư mục output mẫu có sẵn trong repo:
+- `outputs/smoke/` — chạy nhanh kiểm tra flow
+- `outputs/mock_run/` — kết quả đầy đủ với mock runtime
+- `outputs/sample_run/` — kết quả mẫu tham khảo
+
 ## Nhiệm vụ của Học viên
 
 ### Bước 1: Hiểu flow (đọc code)
