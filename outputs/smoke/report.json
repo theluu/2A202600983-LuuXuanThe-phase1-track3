@@ -1,0 +1,293 @@
+{
+  "meta": {
+    "dataset": "hotpot_mini.json",
+    "mode": "mock",
+    "num_records": 16,
+    "agents": [
+      "react",
+      "reflexion"
+    ]
+  },
+  "summary": {
+    "react": {
+      "count": 8,
+      "em": 0.625,
+      "avg_attempts": 1,
+      "avg_token_estimate": 565,
+      "avg_latency_ms": 320
+    },
+    "reflexion": {
+      "count": 8,
+      "em": 0.625,
+      "avg_attempts": 1.75,
+      "avg_token_estimate": 1227.5,
+      "avg_latency_ms": 722.5
+    },
+    "delta_reflexion_minus_react": {
+      "em_abs": 0.0,
+      "attempts_abs": 0.75,
+      "tokens_abs": 662.5,
+      "latency_abs": 402.5
+    }
+  },
+  "failure_modes": {
+    "reflection_overfit": {
+      "total": 4,
+      "react": 2,
+      "reflexion": 2
+    },
+    "none": {
+      "total": 10,
+      "react": 5,
+      "reflexion": 5
+    },
+    "looping": {
+      "total": 2,
+      "react": 1,
+      "reflexion": 1
+    }
+  },
+  "examples": [
+    {
+      "qid": "hp1",
+      "agent_type": "react",
+      "question": "Which university did the author of The Hobbit teach at?",
+      "gold_answer": "Oxford University",
+      "predicted_answer": "Oxford University [mock-reflection_overfit]",
+      "is_correct": false,
+      "attempts": 1,
+      "token_estimate": 565,
+      "latency_ms": 320,
+      "failure_mode": "reflection_overfit",
+      "reflection_count": 0,
+      "next_strategies": []
+    },
+    {
+      "qid": "hp2",
+      "agent_type": "react",
+      "question": "What river flows through the city where Ada Lovelace was born?",
+      "gold_answer": "River Thames",
+      "predicted_answer": "River Thames",
+      "is_correct": true,
+      "attempts": 1,
+      "token_estimate": 565,
+      "latency_ms": 320,
+      "failure_mode": "none",
+      "reflection_count": 0,
+      "next_strategies": []
+    },
+    {
+      "qid": "hp3",
+      "agent_type": "react",
+      "question": "What instrument did the composer of The Four Seasons mainly play?",
+      "gold_answer": "violin",
+      "predicted_answer": "violin",
+      "is_correct": true,
+      "attempts": 1,
+      "token_estimate": 565,
+      "latency_ms": 320,
+      "failure_mode": "none",
+      "reflection_count": 0,
+      "next_strategies": []
+    },
+    {
+      "qid": "hp4",
+      "agent_type": "react",
+      "question": "Which ocean borders the country whose capital is Lima?",
+      "gold_answer": "Pacific Ocean",
+      "predicted_answer": "Pacific Ocean",
+      "is_correct": true,
+      "attempts": 1,
+      "token_estimate": 565,
+      "latency_ms": 320,
+      "failure_mode": "none",
+      "reflection_count": 0,
+      "next_strategies": []
+    },
+    {
+      "qid": "hp5",
+      "agent_type": "react",
+      "question": "What field did the scientist who proposed the three laws of motion study in addition to physics?",
+      "gold_answer": "mathematics",
+      "predicted_answer": "mathematics",
+      "is_correct": true,
+      "attempts": 1,
+      "token_estimate": 565,
+      "latency_ms": 320,
+      "failure_mode": "none",
+      "reflection_count": 0,
+      "next_strategies": []
+    },
+    {
+      "qid": "hp6",
+      "agent_type": "react",
+      "question": "What sea borders the country where Petra is located?",
+      "gold_answer": "Dead Sea",
+      "predicted_answer": "Dead Sea [mock-reflection_overfit]",
+      "is_correct": false,
+      "attempts": 1,
+      "token_estimate": 565,
+      "latency_ms": 320,
+      "failure_mode": "reflection_overfit",
+      "reflection_count": 0,
+      "next_strategies": []
+    },
+    {
+      "qid": "hp7",
+      "agent_type": "react",
+      "question": "Which language family does the primary language of Brazil belong to?",
+      "gold_answer": "Romance",
+      "predicted_answer": "Romance [mock-looping]",
+      "is_correct": false,
+      "attempts": 1,
+      "token_estimate": 565,
+      "latency_ms": 320,
+      "failure_mode": "looping",
+      "reflection_count": 0,
+      "next_strategies": []
+    },
+    {
+      "qid": "hp8",
+      "agent_type": "react",
+      "question": "Which mountain range contains the highest mountain in the country whose capital is Kathmandu?",
+      "gold_answer": "Himalayas",
+      "predicted_answer": "Himalayas",
+      "is_correct": true,
+      "attempts": 1,
+      "token_estimate": 565,
+      "latency_ms": 320,
+      "failure_mode": "none",
+      "reflection_count": 0,
+      "next_strategies": []
+    },
+    {
+      "qid": "hp1",
+      "agent_type": "reflexion",
+      "question": "Which university did the author of The Hobbit teach at?",
+      "gold_answer": "Oxford University",
+      "predicted_answer": "Oxford University [mock-reflection_overfit]",
+      "is_correct": false,
+      "attempts": 2,
+      "token_estimate": 1405,
+      "latency_ms": 830,
+      "failure_mode": "reflection_overfit",
+      "reflection_count": 1,
+      "next_strategies": [
+        "X\u00e1c \u0111\u1ecbnh th\u1ef1c th\u1ec3 trung gian tr\u01b0\u1edbc, r\u1ed3i \u0111\u1ed1i chi\u1ebfu \u0111o\u1ea1n context th\u1ee9 hai tr\u01b0\u1edbc khi ch\u1ed1t \u0111\u00e1p \u00e1n."
+      ]
+    },
+    {
+      "qid": "hp2",
+      "agent_type": "reflexion",
+      "question": "What river flows through the city where Ada Lovelace was born?",
+      "gold_answer": "River Thames",
+      "predicted_answer": "River Thames",
+      "is_correct": true,
+      "attempts": 1,
+      "token_estimate": 565,
+      "latency_ms": 320,
+      "failure_mode": "none",
+      "reflection_count": 0,
+      "next_strategies": []
+    },
+    {
+      "qid": "hp3",
+      "agent_type": "reflexion",
+      "question": "What instrument did the composer of The Four Seasons mainly play?",
+      "gold_answer": "violin",
+      "predicted_answer": "violin",
+      "is_correct": true,
+      "attempts": 1,
+      "token_estimate": 565,
+      "latency_ms": 320,
+      "failure_mode": "none",
+      "reflection_count": 0,
+      "next_strategies": []
+    },
+    {
+      "qid": "hp4",
+      "agent_type": "reflexion",
+      "question": "Which ocean borders the country whose capital is Lima?",
+      "gold_answer": "Pacific Ocean",
+      "predicted_answer": "Pacific Ocean",
+      "is_correct": true,
+      "attempts": 1,
+      "token_estimate": 565,
+      "latency_ms": 320,
+      "failure_mode": "none",
+      "reflection_count": 0,
+      "next_strategies": []
+    },
+    {
+      "qid": "hp5",
+      "agent_type": "reflexion",
+      "question": "What field did the scientist who proposed the three laws of motion study in addition to physics?",
+      "gold_answer": "mathematics",
+      "predicted_answer": "mathematics",
+      "is_correct": true,
+      "attempts": 1,
+      "token_estimate": 565,
+      "latency_ms": 320,
+      "failure_mode": "none",
+      "reflection_count": 0,
+      "next_strategies": []
+    },
+    {
+      "qid": "hp6",
+      "agent_type": "reflexion",
+      "question": "What sea borders the country where Petra is located?",
+      "gold_answer": "Dead Sea",
+      "predicted_answer": "Dead Sea [mock-reflection_overfit]",
+      "is_correct": false,
+      "attempts": 4,
+      "token_estimate": 3280,
+      "latency_ms": 1970,
+      "failure_mode": "reflection_overfit",
+      "reflection_count": 3,
+      "next_strategies": [
+        "X\u00e1c \u0111\u1ecbnh th\u1ef1c th\u1ec3 trung gian tr\u01b0\u1edbc, r\u1ed3i \u0111\u1ed1i chi\u1ebfu \u0111o\u1ea1n context th\u1ee9 hai tr\u01b0\u1edbc khi ch\u1ed1t \u0111\u00e1p \u00e1n.",
+        "X\u00e1c \u0111\u1ecbnh th\u1ef1c th\u1ec3 trung gian tr\u01b0\u1edbc, r\u1ed3i \u0111\u1ed1i chi\u1ebfu \u0111o\u1ea1n context th\u1ee9 hai tr\u01b0\u1edbc khi ch\u1ed1t \u0111\u00e1p \u00e1n.",
+        "X\u00e1c \u0111\u1ecbnh th\u1ef1c th\u1ec3 trung gian tr\u01b0\u1edbc, r\u1ed3i \u0111\u1ed1i chi\u1ebfu \u0111o\u1ea1n context th\u1ee9 hai tr\u01b0\u1edbc khi ch\u1ed1t \u0111\u00e1p \u00e1n."
+      ]
+    },
+    {
+      "qid": "hp7",
+      "agent_type": "reflexion",
+      "question": "Which language family does the primary language of Brazil belong to?",
+      "gold_answer": "Romance",
+      "predicted_answer": "Romance [mock-looping]",
+      "is_correct": false,
+      "attempts": 3,
+      "token_estimate": 2310,
+      "latency_ms": 1380,
+      "failure_mode": "looping",
+      "reflection_count": 2,
+      "next_strategies": [
+        "X\u00e1c \u0111\u1ecbnh th\u1ef1c th\u1ec3 trung gian tr\u01b0\u1edbc, r\u1ed3i \u0111\u1ed1i chi\u1ebfu \u0111o\u1ea1n context th\u1ee9 hai tr\u01b0\u1edbc khi ch\u1ed1t \u0111\u00e1p \u00e1n.",
+        "X\u00e1c \u0111\u1ecbnh th\u1ef1c th\u1ec3 trung gian tr\u01b0\u1edbc, r\u1ed3i \u0111\u1ed1i chi\u1ebfu \u0111o\u1ea1n context th\u1ee9 hai tr\u01b0\u1edbc khi ch\u1ed1t \u0111\u00e1p \u00e1n."
+      ]
+    },
+    {
+      "qid": "hp8",
+      "agent_type": "reflexion",
+      "question": "Which mountain range contains the highest mountain in the country whose capital is Kathmandu?",
+      "gold_answer": "Himalayas",
+      "predicted_answer": "Himalayas",
+      "is_correct": true,
+      "attempts": 1,
+      "token_estimate": 565,
+      "latency_ms": 320,
+      "failure_mode": "none",
+      "reflection_count": 0,
+      "next_strategies": []
+    }
+  ],
+  "extensions": [
+    "structured_evaluator",
+    "reflection_memory",
+    "benchmark_report_json",
+    "mock_mode_for_autograding",
+    "adaptive_max_attempts"
+  ],
+  "discussion": "Ch\u1ea1y \u1edf ch\u1ebf \u0111\u1ed9 'mock'. Exact-match: ReAct=0.625 so v\u1edbi Reflexion=0.625 (delta EM=0.0). Reflexion gi\u00fap \u00edch r\u00f5 nh\u1ea5t khi l\u1ea7n th\u1eed \u0111\u1ea7u d\u1eebng \u1edf hop th\u1ee9 nh\u1ea5t (incomplete_multi_hop) ho\u1eb7c ch\u1ecdn nh\u1ea7m th\u1ef1c th\u1ec3 \u1edf hop th\u1ee9 hai (entity_drift): v\u00f2ng ph\u1ea3n chi\u1ebfu c\u1eadp nh\u1eadt next_strategy v\u00e0o reflection_memory \u0111\u1ec3 Actor s\u1eeda l\u1ed7i \u1edf l\u01b0\u1ee3t sau. C\u00e1i gi\u00e1 ph\u1ea3i tr\u1ea3 l\u00e0 s\u1ed1 attempt, token v\u00e0 latency t\u0103ng (delta attempts=0.75, delta tokens=662.5, delta latency=402.5 ms). C\u00e1c failure mode c\u00f2n s\u00f3t l\u1ea1i \u1edf Reflexion: looping, reflection_overfit \u2014 ch\u1ee7 y\u1ebfu l\u00e0 looping v\u00e0 reflection_overfit, cho th\u1ea5y gi\u1edbi h\u1ea1n khi reflection l\u1eb7p l\u1ea1i ho\u1eb7c b\u00e1m sai h\u01b0\u1edbng; ch\u1ea5t l\u01b0\u1ee3ng c\u1ee7a Evaluator l\u00e0 tr\u1ea7n tr\u00ean cho m\u1ee9c c\u1ea3i thi\u1ec7n."
+}

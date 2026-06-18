@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 16 — Reflexion Benchmark Report</title>
+<style>
+:root{--bg:#0f172a;--card:#1e293b;--ink:#e2e8f0;--muted:#94a3b8;--line:#334155;
+--react:#38bdf8;--refl:#34d399;--pos:#22c55e;--neg:#f87171;}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+background:var(--bg);color:var(--ink);padding:32px;line-height:1.5}
+.wrap{max-width:1040px;margin:0 auto}
+h1{font-size:24px;margin:0 0 4px} h2{font-size:18px;margin:28px 0 12px;color:#cbd5e1}
+.sub{color:var(--muted);font-size:14px;margin-bottom:8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:16px}
+.kpis{display:flex;gap:16px;flex-wrap:wrap}
+.kpi{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.kpi .v{font-size:26px;font-weight:700} .kpi .l{color:var(--muted);font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--line)}
+th:first-child,td.metric,td.q{text-align:left}
+th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+td.pos{color:var(--pos);font-weight:600} td.neg{color:var(--neg);font-weight:600}
+.bar-row{display:flex;align-items:center;gap:12px;margin:8px 0}
+.bar-label{width:80px;color:var(--muted)}
+.bar{flex:1;background:#0b1222;border-radius:8px;overflow:hidden;height:26px}
+.fill{height:100%;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;
+font-size:12px;font-weight:700;color:#08111f}
+.fill.react{background:var(--react)} .fill.refl{background:var(--refl)}
+tr.bad td{background:rgba(248,113,113,.08)}
+.q{max-width:360px;color:#cbd5e1}
+.foot{color:var(--muted);font-size:12px;margin-top:24px}
+.badge{display:inline-block;background:#0b1222;border:1px solid var(--line);border-radius:999px;
+padding:2px 10px;font-size:12px;color:var(--muted);margin-right:6px}
+</style></head><body><div class="wrap">
+<h1>Lab 16 — Reflexion Benchmark Report</h1>
+<div class="sub">
+<span class="badge">dataset: hotpot_100.json</span>
+<span class="badge">mode: openai</span>
+<span class="badge">model: gpt-4o-mini</span>
+<span class="badge">records: 200</span>
+</div>
+
+<div class="kpis">
+  <div class="kpi"><div class="v">0.64</div><div class="l">EM — ReAct</div></div>
+  <div class="kpi"><div class="v">0.76</div><div class="l">EM — Reflexion</div></div>
+  <div class="kpi"><div class="v">$0.105069</div><div class="l">Tổng chi phí ước tính</div></div>
+  <div class="kpi"><div class="v">895.85s</div><div class="l">Wall-clock time</div></div>
+</div>
+
+<h2>Độ chính xác (EM)</h2>
+<div class="card"><div class='bar-row'><span class='bar-label'>ReAct</span><div class='bar'><div class='fill react' style='width:64.0%'>64.0%</div></div></div><div class='bar-row'><span class='bar-label'>Reflexion</span><div class='bar'><div class='fill refl' style='width:76.0%'>76.0%</div></div></div></div>
+
+<h2>So sánh ReAct vs Reflexion</h2>
+<div class="card"><table>
+<thead><tr><th>Metric</th><th>ReAct</th><th>Reflexion</th><th>Δ (Refl−ReAct)</th></tr></thead>
+<tbody><tr><td class='metric'>EM (accuracy)</td><td>0.64</td><td>0.76</td><td class='pos'>0.12</td></tr><tr><td class='metric'>Avg attempts</td><td>1</td><td>1.87</td><td class='pos'>0.87</td></tr><tr><td class='metric'>Avg tokens/q</td><td>2009.55</td><td>4200.79</td><td class='pos'>2191.24</td></tr><tr><td class='metric'>Avg latency (ms)</td><td>2183.46</td><td>6762.12</td><td class='pos'>4578.66</td></tr></tbody></table></div>
+
+<h2>Chi phí &amp; thời gian <span class="sub">(giá USD/1M token: input 0.15 / output 0.6)</span></h2>
+<div class="card"><table>
+<thead><tr><th>Agent</th><th>Total tok</th><th>Prompt</th><th>Completion</th><th>Est. cost</th><th>Compute time</th><th>Avg/q</th></tr></thead>
+<tbody><tr><td class='metric'>react</td><td>200,955</td><td>195,243</td><td>5,712</td><td>$0.032714</td><td>218.35s</td><td>2.183s</td></tr><tr><td class='metric'>reflexion</td><td>420,079</td><td>399,316</td><td>20,763</td><td>$0.072355</td><td>676.21s</td><td>6.762s</td></tr></tbody></table>
+<p class="foot"><b>Tổng chi phí ước tính: $0.105069</b> &nbsp;•&nbsp; ⏱ wall 895.85s</p></div>
+
+<h2>Failure modes</h2>
+<div class="card"><table>
+<thead><tr><th>Mode</th><th>Total</th><th>ReAct</th><th>Reflexion</th></tr></thead>
+<tbody><tr><td class='metric'>none</td><td>140</td><td>64</td><td>76</td></tr><tr><td class='metric'>incomplete_multi_hop</td><td>49</td><td>31</td><td>18</td></tr><tr><td class='metric'>entity_drift</td><td>9</td><td>4</td><td>5</td></tr><tr><td class='metric'>wrong_final_answer</td><td>2</td><td>1</td><td>1</td></tr></tbody></table></div>
+
+<h2>Ví dụ (tối đa 30 — ưu tiên câu sai)</h2>
+<div class="card"><table>
+<thead><tr><th>QID</th><th>Agent</th><th>Question</th><th>Gold</th><th>Predicted</th><th>OK</th><th>Att</th><th>Failure</th></tr></thead>
+<tbody><tr class='bad'><td>5a8b57f25542995d1e6f1371</td><td>react</td><td class='q'>Were Scott Derrickson and Ed Wood of the same nationality?</td><td>yes</td><td>American</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5a8c7595554299585d9e36b6</td><td>react</td><td class='q'>What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?</td><td>Chief of Protocol</td><td>United States ambassador</td><td>❌</td><td>1</td><td>entity_drift</td></tr><tr class='bad'><td>5adbf0a255429947ff17385a</td><td>react</td><td class='q'>Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?</td><td>no</td><td>không đủ thông tin</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5a7bbb64554299042af8f7cc</td><td>react</td><td class='q'>Who is older, Annie Morton or Terry Richardson?</td><td>Terry Richardson</td><td>Annie Morton</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5ab56e32554299637185c594</td><td>react</td><td class='q'>Are Random House Tower and 888 7th Avenue both used for real estate?</td><td>no</td><td>Có, cả Random House Tower và 888 7th Avenue đều được sử dụng cho bất động sản.</td><td>❌</td><td>1</td><td>entity_drift</td></tr><tr class='bad'><td>5ae0d4c9554299603e418468</td><td>react</td><td class='q'>Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?</td><td>1969 until 1974</td><td>Nixon administration</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5ae6050f55429929b0807a5e</td><td>react</td><td class='q'>This singer of A Rather Blustery Day also voiced what hedgehog?</td><td>Sonic</td><td>Miles &quot;Tails&quot; Prower</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5adddccd5542997dc7907069</td><td>react</td><td class='q'>Aside from the Apple Remote, what other device can control the program Apple Remote was originally designed to interact with?</td><td>keyboard function keys</td><td>Siri Remote</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5ae2070a5542994d89d5b313</td><td>react</td><td class='q'>Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice? </td><td>Badly Drawn Boy</td><td>Wolf Alice</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5ae22b8d554299234fd0440f</td><td>react</td><td class='q'>What was the father of Kasper Schmeichel voted to be by the IFFHS in 1992?</td><td>World&#x27;s Best Goalkeeper</td><td>Peter Schmeichel</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5a722b8655429971e9dc9329</td><td>react</td><td class='q'>Who was the writer of These Boots Are Made for Walkin&#x27; and who died in 2007?</td><td>Barton Lee Hazlewood</td><td>Lee Hazlewood</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5ae0361155429925eb1afc2c</td><td>react</td><td class='q'>Which  French ace pilot and adventurer fly L&#x27;Oiseau Blanc</td><td>Charles Eugène</td><td>Charles Nungesser and François Coli</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5abc0a5d5542993f40c73c64</td><td>react</td><td class='q'>Are Freakonomics and In the Realm of the Hackers both American documentaries?</td><td>no</td><td>Không đủ thông tin.</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5abf63f15542997ec76fd3ea</td><td>react</td><td class='q'>Alexander Kerensky was defeated and destroyed by the Bolsheviks in the course of a civil war that ended when ?</td><td>October 1922</td><td>1923</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5ab51dae5542991779162d82</td><td>react</td><td class='q'>Are both Elko Regional Airport and Gerald R. Ford International Airport located in Michigan?</td><td>no</td><td>Không đủ thông tin.</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5add61d65542995b365fab21</td><td>react</td><td class='q'>What type of forum did a former Soviet statesman initiate?</td><td>Organizations could come together to address global issues</td><td>World Summit of Nobel Peace Laureates</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5a87c13f5542996e4f30890c</td><td>react</td><td class='q'>In what city did the &quot;Prince of tenors&quot; star in a film based on an opera by Giacomo Puccini?</td><td>Rome</td><td>New York City</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5ae32e125542991a06ce9946</td><td>react</td><td class='q'>According to the 2001 census, what was the population of the city in which Kirton End is located?</td><td>35,124</td><td>Boston</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5adc53f75542996e6852530a</td><td>react</td><td class='q'>Are both Cypress and Ajuga genera?</td><td>no</td><td>Yes</td><td>❌</td><td>1</td><td>entity_drift</td></tr><tr class='bad'><td>5a8b20335542996c9b8d5fb3</td><td>react</td><td class='q'>What distinction is held by the former NBA player who was a member of the Charlotte Hornets during their 1992-93 season and was head coach for the WNBA team Charlotte Sting?</td><td>shortest player ever to play in the National Basketball Association</td><td>Muggsy Bogues</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5a85fb085542994775f606de</td><td>react</td><td class='q'>What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?</td><td>Ronald Shusett</td><td>Shusett</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5a7be2595542997c3ec972ac</td><td>react</td><td class='q'>Who was born earlier, Emma Bull or Virginia Woolf?</td><td>Adeline Virginia Woolf</td><td>Virginia Woolf</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5a77152355429966f1a36c2e</td><td>react</td><td class='q'>What was the Roud Folk Song Index of the nursery rhyme inspiring What Are Little Girls Made Of?</td><td>821</td><td>không đủ thông tin</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5a8f4c8d554299458435d5a3</td><td>react</td><td class='q'>Scott Parkin has been a vocal critic of Exxonmobil and another corporation that has operations in how many countries ?</td><td>more than 70 countries</td><td>70 countries</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5ac2acff55429921a00ab02b</td><td>react</td><td class='q'>who is the younger brother of The episode guest stars of The Hard Easy </td><td>Bill Murray</td><td>không đủ thông tin</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5ae5aba0554299546bf82f17</td><td>react</td><td class='q'>Which of Tara Strong major voice role in animated series is an American animated television series based on the DC Comics fictional superhero team, the &quot;Teen Titans&quot;?</td><td>Teen Titans Go!</td><td>Raven</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5ae1f4cb554299234fd0436d</td><td>react</td><td class='q'>What is the inhabitant of the city where  122nd SS-Standarte was formed in2014</td><td>276,170 inhabitants</td><td>Strasbourg</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>5ae7e1fc55429952e35ea9cc</td><td>react</td><td class='q'>What color clothing do people of the Netherlands wear during Oranjegekte or to celebrate the national holiday Koningsdag? </td><td>orange</td><td>orange clothing</td><td>❌</td><td>1</td><td>wrong_final_answer</td></tr><tr class='bad'><td>5a713ea95542994082a3e6e4</td><td>react</td><td class='q'>Alvaro Mexia had a diplomatic mission with which tribe of indigenous people?</td><td>Apalachees</td><td>Ais</td><td>❌</td><td>1</td><td>entity_drift</td></tr><tr class='bad'><td>5a88658955429938390d3f47</td><td>react</td><td class='q'>Rostker v. Goldberg held that the practice of what way of filling armed forces vacancies was consitutional?</td><td>Conscription</td><td>requiring only men to register for the draft</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr></tbody></table></div>
+
+<h2>Discussion</h2>
+<div class="card">Chạy ở chế độ &#x27;openai&#x27; (model=gpt-4o-mini). Exact-match: ReAct=0.64 so với Reflexion=0.76 (delta EM=0.12). Reflexion giúp ích rõ nhất khi lần thử đầu dừng ở hop thứ nhất (incomplete_multi_hop) hoặc chọn nhầm thực thể ở hop thứ hai (entity_drift): vòng phản chiếu cập nhật next_strategy vào reflection_memory để Actor sửa lỗi ở lượt sau. Cái giá phải trả là số attempt, token, latency và CHI PHÍ tăng (delta attempts=0.87, delta tokens=2191.24, delta latency=4578.66 ms; tổng chi phí ước tính $0.105069). Các failure mode còn sót lại ở Reflexion: entity_drift, incomplete_multi_hop, wrong_final_answer — chủ yếu là looping và reflection_overfit, cho thấy giới hạn khi reflection lặp lại hoặc bám sai hướng; chất lượng của Evaluator là trần trên cho mức cải thiện. Khi base model đã mạnh và câu hỏi dễ, Reflexion gần như không tăng EM mà chỉ thêm chi phí.</div>
+
+<p class="foot">Extensions: structured_evaluator, reflection_memory, benchmark_report_json, mock_mode_for_autograding, adaptive_max_attempts</p>
+</div></body></html>

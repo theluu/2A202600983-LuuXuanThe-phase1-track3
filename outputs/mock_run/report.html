@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 16 — Reflexion Benchmark Report</title>
+<style>
+:root{--bg:#0f172a;--card:#1e293b;--ink:#e2e8f0;--muted:#94a3b8;--line:#334155;
+--react:#38bdf8;--refl:#34d399;--pos:#22c55e;--neg:#f87171;}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+background:var(--bg);color:var(--ink);padding:32px;line-height:1.5}
+.wrap{max-width:1040px;margin:0 auto}
+h1{font-size:24px;margin:0 0 4px} h2{font-size:18px;margin:28px 0 12px;color:#cbd5e1}
+.sub{color:var(--muted);font-size:14px;margin-bottom:8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:16px}
+.kpis{display:flex;gap:16px;flex-wrap:wrap}
+.kpi{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.kpi .v{font-size:26px;font-weight:700} .kpi .l{color:var(--muted);font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--line)}
+th:first-child,td.metric,td.q{text-align:left}
+th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+td.pos{color:var(--pos);font-weight:600} td.neg{color:var(--neg);font-weight:600}
+.bar-row{display:flex;align-items:center;gap:12px;margin:8px 0}
+.bar-label{width:80px;color:var(--muted)}
+.bar{flex:1;background:#0b1222;border-radius:8px;overflow:hidden;height:26px}
+.fill{height:100%;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;
+font-size:12px;font-weight:700;color:#08111f}
+.fill.react{background:var(--react)} .fill.refl{background:var(--refl)}
+tr.bad td{background:rgba(248,113,113,.08)}
+.q{max-width:360px;color:#cbd5e1}
+.foot{color:var(--muted);font-size:12px;margin-top:24px}
+.badge{display:inline-block;background:#0b1222;border:1px solid var(--line);border-radius:999px;
+padding:2px 10px;font-size:12px;color:var(--muted);margin-right:6px}
+</style></head><body><div class="wrap">
+<h1>Lab 16 — Reflexion Benchmark Report</h1>
+<div class="sub">
+<span class="badge">dataset: benchmark_set.json</span>
+<span class="badge">mode: mock</span>
+<span class="badge">model: mock</span>
+<span class="badge">records: 120</span>
+</div>
+
+<div class="kpis">
+  <div class="kpi"><div class="v">0.6</div><div class="l">EM — ReAct</div></div>
+  <div class="kpi"><div class="v">0.85</div><div class="l">EM — Reflexion</div></div>
+  <div class="kpi"><div class="v">$0.0</div><div class="l">Tổng chi phí ước tính</div></div>
+  <div class="kpi"><div class="v">0.01s</div><div class="l">Wall-clock time</div></div>
+</div>
+
+<h2>Độ chính xác (EM)</h2>
+<div class="card"><div class='bar-row'><span class='bar-label'>ReAct</span><div class='bar'><div class='fill react' style='width:60.0%'>60.0%</div></div></div><div class='bar-row'><span class='bar-label'>Reflexion</span><div class='bar'><div class='fill refl' style='width:85.0%'>85.0%</div></div></div></div>
+
+<h2>So sánh ReAct vs Reflexion</h2>
+<div class="card"><table>
+<thead><tr><th>Metric</th><th>ReAct</th><th>Reflexion</th><th>Δ (Refl−ReAct)</th></tr></thead>
+<tbody><tr><td class='metric'>EM (accuracy)</td><td>0.6</td><td>0.85</td><td class='pos'>0.25</td></tr><tr><td class='metric'>Avg attempts</td><td>1</td><td>1.5667</td><td class='pos'>0.5667</td></tr><tr><td class='metric'>Avg tokens/q</td><td>565</td><td>1055.08</td><td class='pos'>490.08</td></tr><tr><td class='metric'>Avg latency (ms)</td><td>320</td><td>617.67</td><td class='pos'>297.67</td></tr></tbody></table></div>
+
+<h2>Chi phí &amp; thời gian <span class="sub">(giá USD/1M token: input 0.0 / output 0.0)</span></h2>
+<div class="card"><table>
+<thead><tr><th>Agent</th><th>Total tok</th><th>Prompt</th><th>Completion</th><th>Est. cost</th><th>Compute time</th><th>Avg/q</th></tr></thead>
+<tbody><tr><td class='metric'>react</td><td>33,900</td><td>27,120</td><td>6,780</td><td>$0.000000</td><td>19.2s</td><td>0.32s</td></tr><tr><td class='metric'>reflexion</td><td>63,305</td><td>50,644</td><td>12,661</td><td>$0.000000</td><td>37.06s</td><td>0.618s</td></tr></tbody></table>
+<p class="foot"><b>Tổng chi phí ước tính: $0.0</b> &nbsp;•&nbsp; ⏱ wall 0.01s</p></div>
+
+<h2>Failure modes</h2>
+<div class="card"><table>
+<thead><tr><th>Mode</th><th>Total</th><th>ReAct</th><th>Reflexion</th></tr></thead>
+<tbody><tr><td class='metric'>none</td><td>87</td><td>36</td><td>51</td></tr><tr><td class='metric'>looping</td><td>10</td><td>5</td><td>5</td></tr><tr><td class='metric'>reflection_overfit</td><td>8</td><td>4</td><td>4</td></tr><tr><td class='metric'>incomplete_multi_hop</td><td>7</td><td>7</td><td>0</td></tr><tr><td class='metric'>wrong_final_answer</td><td>4</td><td>4</td><td>0</td></tr><tr><td class='metric'>entity_drift</td><td>4</td><td>4</td><td>0</td></tr></tbody></table></div>
+
+<h2>Ví dụ (tối đa 30 — ưu tiên câu sai)</h2>
+<div class="card"><table>
+<thead><tr><th>QID</th><th>Agent</th><th>Question</th><th>Gold</th><th>Predicted</th><th>OK</th><th>Att</th><th>Failure</th></tr></thead>
+<tbody><tr class='bad'><td>bm001</td><td>react</td><td class='q'>Which university did the author of The Hobbit teach at?</td><td>Oxford University</td><td>Oxford University [mock-reflection_overfit]</td><td>❌</td><td>1</td><td>reflection_overfit</td></tr><tr class='bad'><td>bm002</td><td>react</td><td class='q'>What river flows through the city where Ada Lovelace was born?</td><td>River Thames</td><td>River Thames [mock-reflection_overfit]</td><td>❌</td><td>1</td><td>reflection_overfit</td></tr><tr class='bad'><td>bm003</td><td>react</td><td class='q'>What instrument did the composer of The Four Seasons mainly play?</td><td>violin</td><td>violin [mock-incomplete_multi_hop]</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>bm005</td><td>react</td><td class='q'>What field did the scientist who proposed the three laws of motion study besides physics?</td><td>mathematics</td><td>mathematics [mock-wrong_final_answer]</td><td>❌</td><td>1</td><td>wrong_final_answer</td></tr><tr class='bad'><td>bm006</td><td>react</td><td class='q'>What sea borders the country where Petra is located?</td><td>Dead Sea</td><td>Dead Sea [mock-looping]</td><td>❌</td><td>1</td><td>looping</td></tr><tr class='bad'><td>bm009</td><td>react</td><td class='q'>In which city is the museum that holds the Mona Lisa located?</td><td>Paris</td><td>Paris [mock-incomplete_multi_hop]</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>bm012</td><td>react</td><td class='q'>Which continent contains the desert that is the largest hot desert in the world?</td><td>Africa</td><td>Africa [mock-entity_drift]</td><td>❌</td><td>1</td><td>entity_drift</td></tr><tr class='bad'><td>bm014</td><td>react</td><td class='q'>Which planet is studied by the mission named after the Roman messenger god?</td><td>Mercury</td><td>Mercury [mock-incomplete_multi_hop]</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>bm022</td><td>react</td><td class='q'>Which element has the atomic number that is one more than that of carbon?</td><td>nitrogen</td><td>nitrogen [mock-looping]</td><td>❌</td><td>1</td><td>looping</td></tr><tr class='bad'><td>bm027</td><td>react</td><td class='q'>What color is produced by mixing the two primary colors blue and yellow?</td><td>green</td><td>green [mock-looping]</td><td>❌</td><td>1</td><td>looping</td></tr><tr class='bad'><td>bm028</td><td>react</td><td class='q'>Which country is the origin of the martial art Taekwondo?</td><td>South Korea</td><td>South Korea [mock-looping]</td><td>❌</td><td>1</td><td>looping</td></tr><tr class='bad'><td>bm029</td><td>react</td><td class='q'>What is the capital of the country whose national flower is the cherry blossom?</td><td>Tokyo</td><td>Tokyo [mock-reflection_overfit]</td><td>❌</td><td>1</td><td>reflection_overfit</td></tr><tr class='bad'><td>bm033</td><td>react</td><td class='q'>What is the deepest ocean trench, located in the ocean named by Magellan?</td><td>Mariana Trench</td><td>Mariana Trench [mock-looping]</td><td>❌</td><td>1</td><td>looping</td></tr><tr class='bad'><td>bm034</td><td>react</td><td class='q'>Which playwright wrote the tragedy set in the Danish castle of Elsinore?</td><td>William Shakespeare</td><td>William Shakespeare [mock-wrong_final_answer]</td><td>❌</td><td>1</td><td>wrong_final_answer</td></tr><tr class='bad'><td>bm036</td><td>react</td><td class='q'>Which planet has the volcano that is the tallest in the solar system?</td><td>Mars</td><td>Mars [mock-reflection_overfit]</td><td>❌</td><td>1</td><td>reflection_overfit</td></tr><tr class='bad'><td>bm038</td><td>react</td><td class='q'>Which metal is liquid at room temperature and shares its name with a planet?</td><td>mercury</td><td>mercury [mock-incomplete_multi_hop]</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>bm041</td><td>react</td><td class='q'>What is the largest lake in the continent containing the country of Kenya?</td><td>Lake Victoria</td><td>Lake Victoria [mock-entity_drift]</td><td>❌</td><td>1</td><td>entity_drift</td></tr><tr class='bad'><td>bm043</td><td>react</td><td class='q'>What is the capital of the country where kangaroos are native?</td><td>Canberra</td><td>Canberra [mock-wrong_final_answer]</td><td>❌</td><td>1</td><td>wrong_final_answer</td></tr><tr class='bad'><td>bm044</td><td>react</td><td class='q'>Which sea separates the continent of Europe from the country of Egypt?</td><td>Mediterranean Sea</td><td>Mediterranean Sea [mock-entity_drift]</td><td>❌</td><td>1</td><td>entity_drift</td></tr><tr class='bad'><td>bm048</td><td>react</td><td class='q'>Which country built the first artificial satellite, Sputnik 1?</td><td>Soviet Union</td><td>Soviet Union [mock-entity_drift]</td><td>❌</td><td>1</td><td>entity_drift</td></tr><tr class='bad'><td>bm049</td><td>react</td><td class='q'>What is the capital of the country home to the fjords visited via Bergen?</td><td>Oslo</td><td>Oslo [mock-wrong_final_answer]</td><td>❌</td><td>1</td><td>wrong_final_answer</td></tr><tr class='bad'><td>bm051</td><td>react</td><td class='q'>What is the capital of the country famous for the pyramids of Giza?</td><td>Cairo</td><td>Cairo [mock-incomplete_multi_hop]</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>bm053</td><td>react</td><td class='q'>What is the highest waterfall in the world, located in which country?</td><td>Venezuela</td><td>Venezuela [mock-incomplete_multi_hop]</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>bm056</td><td>react</td><td class='q'>Which country is the largest by land area in South America?</td><td>Brazil</td><td>Brazil [mock-incomplete_multi_hop]</td><td>❌</td><td>1</td><td>incomplete_multi_hop</td></tr><tr class='bad'><td>bm001</td><td>reflexion</td><td class='q'>Which university did the author of The Hobbit teach at?</td><td>Oxford University</td><td>Oxford University [mock-reflection_overfit]</td><td>❌</td><td>2</td><td>reflection_overfit</td></tr><tr class='bad'><td>bm002</td><td>reflexion</td><td class='q'>What river flows through the city where Ada Lovelace was born?</td><td>River Thames</td><td>River Thames [mock-reflection_overfit]</td><td>❌</td><td>3</td><td>reflection_overfit</td></tr><tr class='bad'><td>bm006</td><td>reflexion</td><td class='q'>What sea borders the country where Petra is located?</td><td>Dead Sea</td><td>Dead Sea [mock-looping]</td><td>❌</td><td>4</td><td>looping</td></tr><tr class='bad'><td>bm022</td><td>reflexion</td><td class='q'>Which element has the atomic number that is one more than that of carbon?</td><td>nitrogen</td><td>nitrogen [mock-looping]</td><td>❌</td><td>3</td><td>looping</td></tr><tr class='bad'><td>bm027</td><td>reflexion</td><td class='q'>What color is produced by mixing the two primary colors blue and yellow?</td><td>green</td><td>green [mock-looping]</td><td>❌</td><td>2</td><td>looping</td></tr><tr class='bad'><td>bm028</td><td>reflexion</td><td class='q'>Which country is the origin of the martial art Taekwondo?</td><td>South Korea</td><td>South Korea [mock-looping]</td><td>❌</td><td>3</td><td>looping</td></tr></tbody></table></div>
+
+<h2>Discussion</h2>
+<div class="card">Chạy ở chế độ &#x27;mock&#x27; (model=mock). Exact-match: ReAct=0.6 so với Reflexion=0.85 (delta EM=0.25). Reflexion giúp ích rõ nhất khi lần thử đầu dừng ở hop thứ nhất (incomplete_multi_hop) hoặc chọn nhầm thực thể ở hop thứ hai (entity_drift): vòng phản chiếu cập nhật next_strategy vào reflection_memory để Actor sửa lỗi ở lượt sau. Cái giá phải trả là số attempt, token, latency và CHI PHÍ tăng (delta attempts=0.5667, delta tokens=490.08, delta latency=297.67 ms; tổng chi phí ước tính $0.0). Các failure mode còn sót lại ở Reflexion: looping, reflection_overfit — chủ yếu là looping và reflection_overfit, cho thấy giới hạn khi reflection lặp lại hoặc bám sai hướng; chất lượng của Evaluator là trần trên cho mức cải thiện. Khi base model đã mạnh và câu hỏi dễ, Reflexion gần như không tăng EM mà chỉ thêm chi phí.</div>
+
+<p class="foot">Extensions: structured_evaluator, reflection_memory, benchmark_report_json, mock_mode_for_autograding, adaptive_max_attempts</p>
+</div></body></html>
