@@ -1,0 +1,962 @@
+[
+  {
+    "qid": "bm001",
+    "difficulty": "easy",
+    "question": "Which university did the author of The Hobbit teach at?",
+    "gold_answer": "Oxford University",
+    "context": [
+      {
+        "title": "J. R. R. Tolkien",
+        "text": "J. R. R. Tolkien wrote The Hobbit and was a professor at Oxford University."
+      },
+      {
+        "title": "Oxford University",
+        "text": "Oxford University is a collegiate research university in Oxford, England."
+      }
+    ]
+  },
+  {
+    "qid": "bm002",
+    "difficulty": "medium",
+    "question": "What river flows through the city where Ada Lovelace was born?",
+    "gold_answer": "River Thames",
+    "context": [
+      {
+        "title": "Ada Lovelace",
+        "text": "Ada Lovelace was born in London, England."
+      },
+      {
+        "title": "London",
+        "text": "London is crossed by the River Thames."
+      }
+    ]
+  },
+  {
+    "qid": "bm003",
+    "difficulty": "easy",
+    "question": "What instrument did the composer of The Four Seasons mainly play?",
+    "gold_answer": "violin",
+    "context": [
+      {
+        "title": "The Four Seasons",
+        "text": "The Four Seasons is a group of violin concertos by Antonio Vivaldi."
+      },
+      {
+        "title": "Antonio Vivaldi",
+        "text": "Antonio Vivaldi was an Italian Baroque composer and virtuoso violinist."
+      }
+    ]
+  },
+  {
+    "qid": "bm004",
+    "difficulty": "medium",
+    "question": "Which ocean borders the country whose capital is Lima?",
+    "gold_answer": "Pacific Ocean",
+    "context": [
+      {
+        "title": "Lima",
+        "text": "Lima is the capital city of Peru."
+      },
+      {
+        "title": "Peru",
+        "text": "Peru borders the Pacific Ocean."
+      }
+    ]
+  },
+  {
+    "qid": "bm005",
+    "difficulty": "easy",
+    "question": "What field did the scientist who proposed the three laws of motion study besides physics?",
+    "gold_answer": "mathematics",
+    "context": [
+      {
+        "title": "Isaac Newton",
+        "text": "Isaac Newton formulated the laws of motion and was a physicist and mathematician."
+      },
+      {
+        "title": "Laws of motion",
+        "text": "The three laws of motion are attributed to Isaac Newton."
+      }
+    ]
+  },
+  {
+    "qid": "bm006",
+    "difficulty": "hard",
+    "question": "What sea borders the country where Petra is located?",
+    "gold_answer": "Dead Sea",
+    "context": [
+      {
+        "title": "Petra",
+        "text": "Petra is a historical city in Jordan."
+      },
+      {
+        "title": "Jordan",
+        "text": "Jordan borders the Dead Sea to the west."
+      }
+    ]
+  },
+  {
+    "qid": "bm007",
+    "difficulty": "medium",
+    "question": "Which language family does the primary language of Brazil belong to?",
+    "gold_answer": "Romance",
+    "context": [
+      {
+        "title": "Brazil",
+        "text": "The official language of Brazil is Portuguese."
+      },
+      {
+        "title": "Portuguese language",
+        "text": "Portuguese is a Romance language."
+      }
+    ]
+  },
+  {
+    "qid": "bm008",
+    "difficulty": "hard",
+    "question": "Which mountain range contains the highest mountain in the country whose capital is Kathmandu?",
+    "gold_answer": "Himalayas",
+    "context": [
+      {
+        "title": "Kathmandu",
+        "text": "Kathmandu is the capital city of Nepal."
+      },
+      {
+        "title": "Nepal",
+        "text": "Mount Everest, the highest mountain in Nepal, is part of the Himalayas."
+      }
+    ]
+  },
+  {
+    "qid": "bm009",
+    "difficulty": "medium",
+    "question": "In which city is the museum that holds the Mona Lisa located?",
+    "gold_answer": "Paris",
+    "context": [
+      {
+        "title": "Mona Lisa",
+        "text": "The Mona Lisa is displayed in the Louvre museum."
+      },
+      {
+        "title": "Louvre",
+        "text": "The Louvre is an art museum located in Paris, France."
+      }
+    ]
+  },
+  {
+    "qid": "bm010",
+    "difficulty": "medium",
+    "question": "What is the currency of the country where the Colosseum is located?",
+    "gold_answer": "Euro",
+    "context": [
+      {
+        "title": "Colosseum",
+        "text": "The Colosseum is an ancient amphitheatre in Rome, Italy."
+      },
+      {
+        "title": "Italy",
+        "text": "Italy uses the Euro as its currency."
+      }
+    ]
+  },
+  {
+    "qid": "bm011",
+    "difficulty": "easy",
+    "question": "What nationality was the painter of Starry Night?",
+    "gold_answer": "Dutch",
+    "context": [
+      {
+        "title": "The Starry Night",
+        "text": "The Starry Night was painted by Vincent van Gogh."
+      },
+      {
+        "title": "Vincent van Gogh",
+        "text": "Vincent van Gogh was a Dutch post-impressionist painter."
+      }
+    ]
+  },
+  {
+    "qid": "bm012",
+    "difficulty": "medium",
+    "question": "Which continent contains the desert that is the largest hot desert in the world?",
+    "gold_answer": "Africa",
+    "context": [
+      {
+        "title": "Sahara",
+        "text": "The Sahara is the largest hot desert in the world."
+      },
+      {
+        "title": "Sahara location",
+        "text": "The Sahara is located in North Africa."
+      }
+    ]
+  },
+  {
+    "qid": "bm013",
+    "difficulty": "hard",
+    "question": "What is the capital of the country that the Amazon River mainly flows through?",
+    "gold_answer": "Brasilia",
+    "context": [
+      {
+        "title": "Amazon River",
+        "text": "The Amazon River flows mostly through Brazil."
+      },
+      {
+        "title": "Brazil capital",
+        "text": "The capital of Brazil is Brasilia."
+      }
+    ]
+  },
+  {
+    "qid": "bm014",
+    "difficulty": "medium",
+    "question": "Which planet is studied by the mission named after the Roman messenger god?",
+    "gold_answer": "Mercury",
+    "context": [
+      {
+        "title": "MESSENGER",
+        "text": "The MESSENGER mission was named after the Roman messenger god and studied a planet."
+      },
+      {
+        "title": "Mercury planet",
+        "text": "MESSENGER orbited and studied the planet Mercury."
+      }
+    ]
+  },
+  {
+    "qid": "bm015",
+    "difficulty": "easy",
+    "question": "What sport is associated with the tournament called Wimbledon?",
+    "gold_answer": "tennis",
+    "context": [
+      {
+        "title": "Wimbledon",
+        "text": "Wimbledon is the oldest tennis tournament in the world."
+      },
+      {
+        "title": "Tennis",
+        "text": "Wimbledon is one of the four Grand Slam tennis events."
+      }
+    ]
+  },
+  {
+    "qid": "bm016",
+    "difficulty": "medium",
+    "question": "Which country won the FIFA World Cup hosted in the country of the samba?",
+    "gold_answer": "Germany",
+    "context": [
+      {
+        "title": "2014 World Cup",
+        "text": "The 2014 FIFA World Cup was hosted in Brazil."
+      },
+      {
+        "title": "2014 champion",
+        "text": "Germany won the 2014 FIFA World Cup."
+      }
+    ]
+  },
+  {
+    "qid": "bm017",
+    "difficulty": "hard",
+    "question": "What ocean is named after the explorer who first crossed it during his circumnavigation?",
+    "gold_answer": "Pacific Ocean",
+    "context": [
+      {
+        "title": "Ferdinand Magellan",
+        "text": "Ferdinand Magellan named the calm ocean he crossed the 'Pacific'."
+      },
+      {
+        "title": "Pacific naming",
+        "text": "The Pacific Ocean was named by Magellan for its peaceful waters."
+      }
+    ]
+  },
+  {
+    "qid": "bm018",
+    "difficulty": "medium",
+    "question": "In which country is the headquarters of the company that makes the iPhone?",
+    "gold_answer": "United States",
+    "context": [
+      {
+        "title": "iPhone",
+        "text": "The iPhone is made by Apple Inc."
+      },
+      {
+        "title": "Apple Inc.",
+        "text": "Apple Inc. is headquartered in Cupertino, United States."
+      }
+    ]
+  },
+  {
+    "qid": "bm019",
+    "difficulty": "easy",
+    "question": "What is the chemical symbol of the metal used in the Statue of Liberty's outer layer?",
+    "gold_answer": "Cu",
+    "context": [
+      {
+        "title": "Statue of Liberty",
+        "text": "The Statue of Liberty's outer layer is made of copper."
+      },
+      {
+        "title": "Copper",
+        "text": "The chemical symbol of copper is Cu."
+      }
+    ]
+  },
+  {
+    "qid": "bm020",
+    "difficulty": "medium",
+    "question": "Which war is the novel War and Peace primarily set during?",
+    "gold_answer": "Napoleonic Wars",
+    "context": [
+      {
+        "title": "War and Peace",
+        "text": "War and Peace by Leo Tolstoy is set during a major European war."
+      },
+      {
+        "title": "Setting",
+        "text": "War and Peace depicts the French invasion of Russia during the Napoleonic Wars."
+      }
+    ]
+  },
+  {
+    "qid": "bm021",
+    "difficulty": "hard",
+    "question": "What is the capital of the country where the official residence '10 Downing Street' is located?",
+    "gold_answer": "London",
+    "context": [
+      {
+        "title": "10 Downing Street",
+        "text": "10 Downing Street is the residence of the UK Prime Minister."
+      },
+      {
+        "title": "United Kingdom",
+        "text": "The capital of the United Kingdom is London."
+      }
+    ]
+  },
+  {
+    "qid": "bm022",
+    "difficulty": "medium",
+    "question": "Which element has the atomic number that is one more than that of carbon?",
+    "gold_answer": "nitrogen",
+    "context": [
+      {
+        "title": "Carbon",
+        "text": "Carbon has atomic number 6."
+      },
+      {
+        "title": "Nitrogen",
+        "text": "Nitrogen has atomic number 7."
+      }
+    ]
+  },
+  {
+    "qid": "bm023",
+    "difficulty": "easy",
+    "question": "What is the largest moon of the planet named after the Roman king of gods?",
+    "gold_answer": "Ganymede",
+    "context": [
+      {
+        "title": "Jupiter",
+        "text": "Jupiter is named after the Roman king of the gods."
+      },
+      {
+        "title": "Ganymede",
+        "text": "Ganymede is the largest moon of Jupiter."
+      }
+    ]
+  },
+  {
+    "qid": "bm024",
+    "difficulty": "medium",
+    "question": "In which US state is the city that hosted the 1996 Summer Olympics?",
+    "gold_answer": "Georgia",
+    "context": [
+      {
+        "title": "1996 Summer Olympics",
+        "text": "The 1996 Summer Olympics were held in Atlanta."
+      },
+      {
+        "title": "Atlanta",
+        "text": "Atlanta is the capital of the US state of Georgia."
+      }
+    ]
+  },
+  {
+    "qid": "bm025",
+    "difficulty": "hard",
+    "question": "What is the longest river in the continent where the Serengeti is located?",
+    "gold_answer": "Nile",
+    "context": [
+      {
+        "title": "Serengeti",
+        "text": "The Serengeti is located in Africa."
+      },
+      {
+        "title": "Nile",
+        "text": "The Nile is the longest river in Africa."
+      }
+    ]
+  },
+  {
+    "qid": "bm026",
+    "difficulty": "medium",
+    "question": "Which scientist developed the theory that explains the photoelectric effect?",
+    "gold_answer": "Albert Einstein",
+    "context": [
+      {
+        "title": "Photoelectric effect",
+        "text": "The photoelectric effect was explained in a 1905 paper."
+      },
+      {
+        "title": "Albert Einstein",
+        "text": "Albert Einstein explained the photoelectric effect in 1905."
+      }
+    ]
+  },
+  {
+    "qid": "bm027",
+    "difficulty": "easy",
+    "question": "What color is produced by mixing the two primary colors blue and yellow?",
+    "gold_answer": "green",
+    "context": [
+      {
+        "title": "Color mixing",
+        "text": "Mixing blue and yellow produces a secondary color."
+      },
+      {
+        "title": "Green",
+        "text": "Blue mixed with yellow produces green."
+      }
+    ]
+  },
+  {
+    "qid": "bm028",
+    "difficulty": "medium",
+    "question": "Which country is the origin of the martial art Taekwondo?",
+    "gold_answer": "South Korea",
+    "context": [
+      {
+        "title": "Taekwondo",
+        "text": "Taekwondo is a Korean martial art."
+      },
+      {
+        "title": "Korea",
+        "text": "Taekwondo originated in South Korea."
+      }
+    ]
+  },
+  {
+    "qid": "bm029",
+    "difficulty": "hard",
+    "question": "What is the capital of the country whose national flower is the cherry blossom?",
+    "gold_answer": "Tokyo",
+    "context": [
+      {
+        "title": "Cherry blossom",
+        "text": "The cherry blossom is the national flower of Japan."
+      },
+      {
+        "title": "Japan",
+        "text": "The capital of Japan is Tokyo."
+      }
+    ]
+  },
+  {
+    "qid": "bm030",
+    "difficulty": "medium",
+    "question": "Which gas, absorbed by plants, is the main reactant in photosynthesis?",
+    "gold_answer": "carbon dioxide",
+    "context": [
+      {
+        "title": "Photosynthesis",
+        "text": "Plants absorb a gas from the air for photosynthesis."
+      },
+      {
+        "title": "Reactant",
+        "text": "Photosynthesis uses carbon dioxide and water to make glucose."
+      }
+    ]
+  },
+  {
+    "qid": "bm031",
+    "difficulty": "easy",
+    "question": "What is the capital of the country where the Eiffel Tower stands?",
+    "gold_answer": "Paris",
+    "context": [
+      {
+        "title": "Eiffel Tower",
+        "text": "The Eiffel Tower is located in Paris."
+      },
+      {
+        "title": "France",
+        "text": "Paris is the capital of France."
+      }
+    ]
+  },
+  {
+    "qid": "bm032",
+    "difficulty": "medium",
+    "question": "Which ancient civilization built the city of Machu Picchu?",
+    "gold_answer": "Inca",
+    "context": [
+      {
+        "title": "Machu Picchu",
+        "text": "Machu Picchu is a 15th-century citadel in Peru."
+      },
+      {
+        "title": "Inca",
+        "text": "Machu Picchu was built by the Inca civilization."
+      }
+    ]
+  },
+  {
+    "qid": "bm033",
+    "difficulty": "hard",
+    "question": "What is the deepest ocean trench, located in the ocean named by Magellan?",
+    "gold_answer": "Mariana Trench",
+    "context": [
+      {
+        "title": "Pacific Ocean",
+        "text": "The Pacific Ocean was named by Ferdinand Magellan."
+      },
+      {
+        "title": "Mariana Trench",
+        "text": "The Mariana Trench in the Pacific is the deepest ocean trench."
+      }
+    ]
+  },
+  {
+    "qid": "bm034",
+    "difficulty": "medium",
+    "question": "Which playwright wrote the tragedy set in the Danish castle of Elsinore?",
+    "gold_answer": "William Shakespeare",
+    "context": [
+      {
+        "title": "Hamlet",
+        "text": "Hamlet is set at Elsinore castle in Denmark."
+      },
+      {
+        "title": "Author",
+        "text": "Hamlet was written by William Shakespeare."
+      }
+    ]
+  },
+  {
+    "qid": "bm035",
+    "difficulty": "easy",
+    "question": "What is the primary language spoken in the country whose capital is Madrid?",
+    "gold_answer": "Spanish",
+    "context": [
+      {
+        "title": "Madrid",
+        "text": "Madrid is the capital of Spain."
+      },
+      {
+        "title": "Spain",
+        "text": "The primary language of Spain is Spanish."
+      }
+    ]
+  },
+  {
+    "qid": "bm036",
+    "difficulty": "medium",
+    "question": "Which planet has the volcano that is the tallest in the solar system?",
+    "gold_answer": "Mars",
+    "context": [
+      {
+        "title": "Olympus Mons",
+        "text": "Olympus Mons is the tallest volcano in the solar system."
+      },
+      {
+        "title": "Mars",
+        "text": "Olympus Mons is located on Mars."
+      }
+    ]
+  },
+  {
+    "qid": "bm037",
+    "difficulty": "hard",
+    "question": "What is the capital of the country where the ruins of Angkor Wat are found?",
+    "gold_answer": "Phnom Penh",
+    "context": [
+      {
+        "title": "Angkor Wat",
+        "text": "Angkor Wat is a temple complex in Cambodia."
+      },
+      {
+        "title": "Cambodia",
+        "text": "The capital of Cambodia is Phnom Penh."
+      }
+    ]
+  },
+  {
+    "qid": "bm038",
+    "difficulty": "medium",
+    "question": "Which metal is liquid at room temperature and shares its name with a planet?",
+    "gold_answer": "mercury",
+    "context": [
+      {
+        "title": "Liquid metal",
+        "text": "One metal is liquid at room temperature and named after a planet."
+      },
+      {
+        "title": "Mercury",
+        "text": "Mercury is a metal that is liquid at room temperature."
+      }
+    ]
+  },
+  {
+    "qid": "bm039",
+    "difficulty": "easy",
+    "question": "What is the national animal of the country whose capital is Beijing?",
+    "gold_answer": "giant panda",
+    "context": [
+      {
+        "title": "Beijing",
+        "text": "Beijing is the capital of China."
+      },
+      {
+        "title": "China",
+        "text": "The national animal of China is the giant panda."
+      }
+    ]
+  },
+  {
+    "qid": "bm040",
+    "difficulty": "medium",
+    "question": "Which scientist formulated the periodic law and created the periodic table?",
+    "gold_answer": "Dmitri Mendeleev",
+    "context": [
+      {
+        "title": "Periodic table",
+        "text": "The periodic table was first widely published in 1869."
+      },
+      {
+        "title": "Dmitri Mendeleev",
+        "text": "Dmitri Mendeleev created the periodic table and periodic law."
+      }
+    ]
+  },
+  {
+    "qid": "bm041",
+    "difficulty": "hard",
+    "question": "What is the largest lake in the continent containing the country of Kenya?",
+    "gold_answer": "Lake Victoria",
+    "context": [
+      {
+        "title": "Kenya",
+        "text": "Kenya is a country in Africa."
+      },
+      {
+        "title": "Lake Victoria",
+        "text": "Lake Victoria is the largest lake in Africa."
+      }
+    ]
+  },
+  {
+    "qid": "bm042",
+    "difficulty": "medium",
+    "question": "Which composer became deaf yet wrote the Ninth Symphony?",
+    "gold_answer": "Ludwig van Beethoven",
+    "context": [
+      {
+        "title": "Ninth Symphony",
+        "text": "The Ninth Symphony includes the 'Ode to Joy'."
+      },
+      {
+        "title": "Beethoven",
+        "text": "Ludwig van Beethoven composed the Ninth Symphony while deaf."
+      }
+    ]
+  },
+  {
+    "qid": "bm043",
+    "difficulty": "easy",
+    "question": "What is the capital of the country where kangaroos are native?",
+    "gold_answer": "Canberra",
+    "context": [
+      {
+        "title": "Kangaroo",
+        "text": "Kangaroos are native to Australia."
+      },
+      {
+        "title": "Australia",
+        "text": "The capital of Australia is Canberra."
+      }
+    ]
+  },
+  {
+    "qid": "bm044",
+    "difficulty": "medium",
+    "question": "Which sea separates the continent of Europe from the country of Egypt?",
+    "gold_answer": "Mediterranean Sea",
+    "context": [
+      {
+        "title": "Egypt",
+        "text": "Egypt is in Africa, across the sea from Europe."
+      },
+      {
+        "title": "Mediterranean Sea",
+        "text": "The Mediterranean Sea separates Europe from Egypt in Africa."
+      }
+    ]
+  },
+  {
+    "qid": "bm045",
+    "difficulty": "hard",
+    "question": "What is the official currency of the country where the Taj Mahal is located?",
+    "gold_answer": "Indian rupee",
+    "context": [
+      {
+        "title": "Taj Mahal",
+        "text": "The Taj Mahal is located in India."
+      },
+      {
+        "title": "India",
+        "text": "The official currency of India is the Indian rupee."
+      }
+    ]
+  },
+  {
+    "qid": "bm046",
+    "difficulty": "medium",
+    "question": "Which planet is the closest in size to the planet we live on?",
+    "gold_answer": "Venus",
+    "context": [
+      {
+        "title": "Earth",
+        "text": "Earth is the planet we live on."
+      },
+      {
+        "title": "Venus",
+        "text": "Venus is the closest in size to Earth among the planets."
+      }
+    ]
+  },
+  {
+    "qid": "bm047",
+    "difficulty": "easy",
+    "question": "What is the main ingredient of the dish known as guacamole?",
+    "gold_answer": "avocado",
+    "context": [
+      {
+        "title": "Guacamole",
+        "text": "Guacamole is a green dip from Mexican cuisine."
+      },
+      {
+        "title": "Ingredient",
+        "text": "The main ingredient of guacamole is avocado."
+      }
+    ]
+  },
+  {
+    "qid": "bm048",
+    "difficulty": "medium",
+    "question": "Which country built the first artificial satellite, Sputnik 1?",
+    "gold_answer": "Soviet Union",
+    "context": [
+      {
+        "title": "Sputnik 1",
+        "text": "Sputnik 1 was the first artificial satellite, launched in 1957."
+      },
+      {
+        "title": "Launcher",
+        "text": "Sputnik 1 was launched by the Soviet Union."
+      }
+    ]
+  },
+  {
+    "qid": "bm049",
+    "difficulty": "hard",
+    "question": "What is the capital of the country home to the fjords visited via Bergen?",
+    "gold_answer": "Oslo",
+    "context": [
+      {
+        "title": "Bergen",
+        "text": "Bergen is a gateway city to the fjords of Norway."
+      },
+      {
+        "title": "Norway",
+        "text": "The capital of Norway is Oslo."
+      }
+    ]
+  },
+  {
+    "qid": "bm050",
+    "difficulty": "medium",
+    "question": "Which element makes up the majority of Earth's atmosphere?",
+    "gold_answer": "nitrogen",
+    "context": [
+      {
+        "title": "Atmosphere",
+        "text": "Earth's atmosphere is mostly one gas by volume."
+      },
+      {
+        "title": "Nitrogen",
+        "text": "Nitrogen makes up about 78% of Earth's atmosphere."
+      }
+    ]
+  },
+  {
+    "qid": "bm051",
+    "difficulty": "easy",
+    "question": "What is the capital of the country famous for the pyramids of Giza?",
+    "gold_answer": "Cairo",
+    "context": [
+      {
+        "title": "Giza pyramids",
+        "text": "The pyramids of Giza are in Egypt."
+      },
+      {
+        "title": "Egypt",
+        "text": "The capital of Egypt is Cairo."
+      }
+    ]
+  },
+  {
+    "qid": "bm052",
+    "difficulty": "medium",
+    "question": "Which novelist created the detective Sherlock Holmes?",
+    "gold_answer": "Arthur Conan Doyle",
+    "context": [
+      {
+        "title": "Sherlock Holmes",
+        "text": "Sherlock Holmes is a fictional detective."
+      },
+      {
+        "title": "Author",
+        "text": "Sherlock Holmes was created by Arthur Conan Doyle."
+      }
+    ]
+  },
+  {
+    "qid": "bm053",
+    "difficulty": "hard",
+    "question": "What is the highest waterfall in the world, located in which country?",
+    "gold_answer": "Venezuela",
+    "context": [
+      {
+        "title": "Angel Falls",
+        "text": "Angel Falls is the highest uninterrupted waterfall in the world."
+      },
+      {
+        "title": "Location",
+        "text": "Angel Falls is located in Venezuela."
+      }
+    ]
+  },
+  {
+    "qid": "bm054",
+    "difficulty": "medium",
+    "question": "Which programming language is named after a British comedy troupe?",
+    "gold_answer": "Python",
+    "context": [
+      {
+        "title": "Python language",
+        "text": "The Python language's name was inspired by a comedy troupe."
+      },
+      {
+        "title": "Monty Python",
+        "text": "Python was named after Monty Python, a British comedy troupe."
+      }
+    ]
+  },
+  {
+    "qid": "bm055",
+    "difficulty": "easy",
+    "question": "What is the largest organ of the human body?",
+    "gold_answer": "skin",
+    "context": [
+      {
+        "title": "Human organs",
+        "text": "The body's largest organ covers its surface."
+      },
+      {
+        "title": "Skin",
+        "text": "The skin is the largest organ of the human body."
+      }
+    ]
+  },
+  {
+    "qid": "bm056",
+    "difficulty": "medium",
+    "question": "Which country is the largest by land area in South America?",
+    "gold_answer": "Brazil",
+    "context": [
+      {
+        "title": "South America",
+        "text": "South America's largest country covers about half the continent."
+      },
+      {
+        "title": "Brazil",
+        "text": "Brazil is the largest country in South America by land area."
+      }
+    ]
+  },
+  {
+    "qid": "bm057",
+    "difficulty": "hard",
+    "question": "What is the capital of the country where the Great Barrier Reef is located?",
+    "gold_answer": "Canberra",
+    "context": [
+      {
+        "title": "Great Barrier Reef",
+        "text": "The Great Barrier Reef lies off the coast of Australia."
+      },
+      {
+        "title": "Australia",
+        "text": "The capital of Australia is Canberra."
+      }
+    ]
+  },
+  {
+    "qid": "bm058",
+    "difficulty": "medium",
+    "question": "Which physicist proposed the famous equation relating mass and energy?",
+    "gold_answer": "Albert Einstein",
+    "context": [
+      {
+        "title": "Mass-energy equivalence",
+        "text": "The equation E=mc^2 relates mass and energy."
+      },
+      {
+        "title": "Einstein",
+        "text": "E=mc^2 was proposed by Albert Einstein."
+      }
+    ]
+  },
+  {
+    "qid": "bm059",
+    "difficulty": "easy",
+    "question": "What gas do humans primarily exhale during respiration?",
+    "gold_answer": "carbon dioxide",
+    "context": [
+      {
+        "title": "Respiration",
+        "text": "Humans exhale a gas as a waste product of respiration."
+      },
+      {
+        "title": "Carbon dioxide",
+        "text": "The gas humans primarily exhale is carbon dioxide."
+      }
+    ]
+  },
+  {
+    "qid": "bm060",
+    "difficulty": "medium",
+    "question": "Which empire built the road network leading to its capital, Rome?",
+    "gold_answer": "Roman Empire",
+    "context": [
+      {
+        "title": "Roman roads",
+        "text": "An ancient empire built roads that led to its capital."
+      },
+      {
+        "title": "Roman Empire",
+        "text": "The Roman Empire built roads leading to Rome, its capital."
+      }
+    ]
+  }
+]

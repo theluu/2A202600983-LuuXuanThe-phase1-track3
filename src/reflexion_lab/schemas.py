@@ -14,12 +14,18 @@ class QAExample(BaseModel):
     context: list[ContextChunk]
 
 class JudgeResult(BaseModel):
-    # TODO: Học viên định nghĩa các trường cần thiết cho kết quả đánh giá (score, reason, ...)
-    pass
+    """Kết quả chấm điểm một câu trả lời của Actor."""
+    score: int = Field(description="1 nếu đúng (khớp gold answer), 0 nếu sai")
+    reason: str = Field(description="Giải thích ngắn gọn vì sao đúng/sai")
+    missing_evidence: list[str] = Field(default_factory=list, description="Các bằng chứng còn thiếu (vd hop chưa hoàn thành)")
+    spurious_claims: list[str] = Field(default_factory=list, description="Các khẳng định sai/không có căn cứ trong câu trả lời")
 
 class ReflectionEntry(BaseModel):
-    # TODO: Học viên định nghĩa các trường cần thiết cho một mục reflection (attempt_id, lesson, strategy, ...)
-    pass
+    """Một mục tự phản chiếu sau khi trả lời sai."""
+    attempt_id: int = Field(description="Lần thử (attempt) tạo ra reflection này")
+    failure_reason: str = Field(description="Lý do lần thử trước thất bại")
+    lesson: str = Field(description="Bài học rút ra từ thất bại")
+    next_strategy: str = Field(description="Chiến thuật cụ thể cho lần thử tiếp theo")
 
 class AttemptTrace(BaseModel):
     attempt_id: int
@@ -29,6 +35,8 @@ class AttemptTrace(BaseModel):
     reflection: Optional[ReflectionEntry] = None
     token_estimate: int = 0
     latency_ms: int = 0
+    prompt_tokens: int = 0
+    completion_tokens: int = 0
 
 class RunRecord(BaseModel):
     qid: str
@@ -40,6 +48,8 @@ class RunRecord(BaseModel):
     attempts: int
     token_estimate: int
     latency_ms: int
+    prompt_tokens: int = 0
+    completion_tokens: int = 0
     failure_mode: Literal["none", "entity_drift", "incomplete_multi_hop", "wrong_final_answer", "looping", "reflection_overfit"]
     reflections: list[ReflectionEntry] = Field(default_factory=list)
     traces: list[AttemptTrace] = Field(default_factory=list)
